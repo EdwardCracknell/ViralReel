@@ -106,39 +106,6 @@
             width: 100%;
         }
         
-        .contact-btn {
-            background: linear-gradient(45deg, #ff008c, #6646ff);
-            color: white;
-            padding: 12px 24px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 20px rgba(255, 0, 140, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .contact-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.5s ease;
-        }
-        
-        .contact-btn:hover::before {
-            left: 100%;
-        }
-        
-        .contact-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(255, 0, 140, 0.4);
-        }
-        
         /* Hero Section */
         .hero {
             padding: 120px 0 80px;
@@ -248,11 +215,6 @@
             border-radius: 18px;
         }
         
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-        
         @keyframes float {
             0%, 100% { transform: translateY(0px); }
             50% { transform: translateY(-10px); }
@@ -340,6 +302,11 @@
             border-radius: 22px;
             z-index: -1;
             animation: rotate 4s linear infinite;
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
         }
         
         .feature-card h3 {
@@ -522,41 +489,24 @@
                 justify-content: center;
             }
             
-            .nav-links {
-                display: none;
-            }
-            
             .hero-banner {
                 height: 300px;
                 margin-bottom: 40px;
                 border-radius: 15px;
             }
             
-            .banner-content {
-                flex-direction: column;
-                padding: 30px;
-                gap: 20px;
-            }
-            
-            .banner-title {
-                font-size: 2.5rem;
-                letter-spacing: 2px;
-            }
-            
-            .banner-play {
-                width: 80px;
-                height: 80px;
-            }
-            
-            .play-icon {
-                border-left: 15px solid #ffffff;
-                border-top: 10px solid transparent;
-                border-bottom: 10px solid transparent;
-            }
-            
             .footer-content {
                 flex-direction: column;
                 gap: 20px;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .nav-links a {
+                font-size: 14px;
             }
         }
         
@@ -593,7 +543,6 @@
                 <li><a href="#how-it-works">How It Works</a></li>
                 <li><a href="#download">Download</a></li>
             </ul>
-            <a href="#contact" class="contact-btn">Get Quote</a>
         </nav>
     </header>
 
