@@ -71,6 +71,7 @@
             background-clip: text;
             text-transform: uppercase;
             letter-spacing: 2px;
+            cursor: pointer;
         }
         
         .nav-links {
@@ -104,6 +105,24 @@
         
         .nav-links a:hover::after {
             width: 100%;
+        }
+        
+        /* Content Sections */
+        .main-content {
+            display: block;
+        }
+        
+        .privacy-content {
+            display: none;
+            padding: 120px 0 40px;
+        }
+        
+        .privacy-content.active {
+            display: block;
+        }
+        
+        .main-content.hidden {
+            display: none;
         }
         
         /* Hero Section */
@@ -415,6 +434,85 @@
             margin-bottom: 40px;
         }
         
+        /* Privacy Policy Styles */
+        .privacy-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .privacy-header h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #ff008c, #6646ff, #00d0ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .privacy-header p {
+            color: #B0B0B0;
+            font-size: 1.1rem;
+        }
+        
+        .privacy-policy {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(42, 42, 64, 0.3);
+            border-radius: 20px;
+            padding: 40px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 0, 140, 0.2);
+        }
+        
+        .privacy-policy h2 {
+            color: #ff008c;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            margin-top: 30px;
+        }
+        
+        .privacy-policy h2:first-child {
+            margin-top: 0;
+        }
+        
+        .privacy-policy p, .privacy-policy li {
+            color: #B0B0B0;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        
+        .privacy-policy ul {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .privacy-policy strong {
+            color: white;
+        }
+        
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 24px;
+            background: linear-gradient(45deg, #6646ff, #00d0ff);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            margin-bottom: 40px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(102, 70, 255, 0.3);
+        }
+        
+        .back-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 70, 255, 0.4);
+        }
+        
         /* Footer */
         .footer {
             padding: 40px 0;
@@ -451,6 +549,7 @@
             color: #666;
             text-decoration: none;
             transition: color 0.3s ease;
+            cursor: pointer;
         }
         
         .footer-links a:hover {
@@ -465,7 +564,7 @@
         
         /* Responsive */
         @media (max-width: 768px) {
-            .hero h1 {
+            .hero h1, .privacy-header h1 {
                 font-size: 2.5rem;
                 letter-spacing: 1px;
             }
@@ -508,6 +607,10 @@
             .nav-links a {
                 font-size: 14px;
             }
+            
+            .privacy-policy {
+                padding: 30px 20px;
+            }
         }
         
         /* Animations */
@@ -537,26 +640,105 @@
     <!-- Header -->
     <header class="header">
         <nav class="nav container">
-            <div class="logo">Viral Reel</div>
+            <div class="logo" onclick="showHome()">Viral Reel</div>
             <ul class="nav-links">
-                <li><a href="#features">Features</a></li>
-                <li><a href="#how-it-works">How It Works</a></li>
-                <li><a href="#download">Download</a></li>
+                <li><a href="#features" onclick="showHome()">Features</a></li>
+                <li><a href="#how-it-works" onclick="showHome()">How It Works</a></li>
+                <li><a href="#download" onclick="showHome()">Download</a></li>
+                <li><a onclick="showPrivacy()">Privacy</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <!-- Hero Banner -->
-            <div class="hero-banner fade-in">
-                <img src="ViralReelBanner.webp" alt="Viral Reel - AI-Powered Video Editing Banner">
+    <!-- Main Content -->
+    <div class="main-content" id="mainContent">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <!-- Hero Banner -->
+                <div class="hero-banner fade-in">
+                    <img src="ViralReelBanner.webp" alt="Viral Reel - AI-Powered Video Editing Banner">
+                </div>
+                
+                <div class="hero-content fade-in">
+                    <h1>Turn Your Videos Into Viral Content</h1>
+                    <p>AI-powered editing that makes every video a potential viral hit. Professional results in minutes, not hours.</p>
+                    
+                    <div class="cta-buttons">
+                        <a href="#" class="download-btn">
+                            📱 Download for iOS
+                        </a>
+                        <a href="#" class="download-btn secondary">
+                            🤖 Get on Android
+                        </a>
+                    </div>
+                </div>
             </div>
-            
-            <div class="hero-content fade-in">
-                <h1>Turn Your Videos Into Viral Content</h1>
-                <p>AI-powered editing that makes every video a potential viral hit. Professional results in minutes, not hours.</p>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features" id="features">
+            <div class="container">
+                <h2>Why Choose Viral Reel?</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">✨</div>
+                        <h3>AI-Powered Video Editing</h3>
+                        <p>Our advanced AI analyzes your content and automatically applies the best editing techniques to maximize engagement and viral potential.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">🎨</div>
+                        <h3>Professional Color Grading</h3>
+                        <p>Get Hollywood-level color grading automatically applied to your videos. Make every frame pop with cinematic quality.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">📱</div>
+                        <h3>Smart Caption Generation</h3>
+                        <p>AI generates viral captions and hashtags that boost your reach. Get discovered by the right audience every time.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process Section -->
+        <section class="process" id="how-it-works">
+            <div class="container">
+                <h2>How It Works</h2>
+                <div class="process-steps">
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <h3>Upload Your Video</h3>
+                        <p>Simply upload any video from your camera roll or record directly in the app</p>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <h3>Choose Your Style</h3>
+                        <p>Select from warm or cool tones, or let our AI decide the perfect mood for your content</p>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <h3>Describe Your Vision</h3>
+                        <p>Tell our AI about your video - the more details, the better the final result</p>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">4</div>
+                        <h3>Get Viral Content</h3>
+                        <p>Watch as AI processes, grades, and generates captions for your viral-ready video</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA -->
+        <section class="final-cta" id="download">
+            <div class="container">
+                <h2>Ready to Go Viral?</h2>
+                <p>Join thousands of creators who are already making viral content with Viral Reel</p>
                 
                 <div class="cta-buttons">
                     <a href="#" class="download-btn">
@@ -567,83 +749,81 @@
                     </a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </div>
 
-    <!-- Features Section -->
-    <section class="features" id="features">
+    <!-- Privacy Policy Section -->
+    <div class="privacy-content" id="privacyContent">
         <div class="container">
-            <h2>Why Choose Viral Reel?</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">✨</div>
-                    <h3>AI-Powered Video Editing</h3>
-                    <p>Our advanced AI analyzes your content and automatically applies the best editing techniques to maximize engagement and viral potential.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">🎨</div>
-                    <h3>Professional Color Grading</h3>
-                    <p>Get Hollywood-level color grading automatically applied to your videos. Make every frame pop with cinematic quality.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">📱</div>
-                    <h3>Smart Caption Generation</h3>
-                    <p>AI generates viral captions and hashtags that boost your reach. Get discovered by the right audience every time.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Process Section -->
-    <section class="process" id="how-it-works">
-        <div class="container">
-            <h2>How It Works</h2>
-            <div class="process-steps">
-                <div class="process-step">
-                    <div class="step-number">1</div>
-                    <h3>Upload Your Video</h3>
-                    <p>Simply upload any video from your camera roll or record directly in the app</p>
-                </div>
-                
-                <div class="process-step">
-                    <div class="step-number">2</div>
-                    <h3>Choose Your Style</h3>
-                    <p>Select from warm or cool tones, or let our AI decide the perfect mood for your content</p>
-                </div>
-                
-                <div class="process-step">
-                    <div class="step-number">3</div>
-                    <h3>Describe Your Vision</h3>
-                    <p>Tell our AI about your video - the more details, the better the final result</p>
-                </div>
-                
-                <div class="process-step">
-                    <div class="step-number">4</div>
-                    <h3>Get Viral Content</h3>
-                    <p>Watch as AI processes, grades, and generates captions for your viral-ready video</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Final CTA -->
-    <section class="final-cta" id="download">
-        <div class="container">
-            <h2>Ready to Go Viral?</h2>
-            <p>Join thousands of creators who are already making viral content with Viral Reel</p>
+            <a href="#" class="back-btn" onclick="showHome()">← Back to Home</a>
             
-            <div class="cta-buttons">
-                <a href="#" class="download-btn">
-                    📱 Download for iOS
-                </a>
-                <a href="#" class="download-btn secondary">
-                    🤖 Get on Android
-                </a>
+            <div class="privacy-header">
+                <h1>Privacy Policy</h1>
+                <p>Last updated: August 16, 2025</p>
+            </div>
+            
+            <div class="privacy-policy">
+                <h2>1. Information We Collect</h2>
+                <p><strong>Personal Information:</strong> When you create an account, we collect your name, email address, and profile information.</p>
+                <p><strong>Video Content:</strong> We process videos you upload to provide our AI-powered editing services. Videos are temporarily stored for processing and deleted after completion.</p>
+                <p><strong>Usage Data:</strong> We collect information about how you use our app, including features accessed, processing time, and app performance data.</p>
+                
+                <h2>2. How We Use Your Information</h2>
+                <ul>
+                    <li>Provide and improve our AI video editing services</li>
+                    <li>Process your videos with color grading and effects</li>
+                    <li>Generate AI-powered captions and suggestions</li>
+                    <li>Send important updates about our service</li>
+                    <li>Analyze usage patterns to enhance user experience</li>
+                </ul>
+                
+                <h2>3. Video Processing & Storage</h2>
+                <p><strong>Temporary Processing:</strong> Videos are uploaded to our secure servers for AI processing. All videos are automatically deleted within 24 hours of processing completion.</p>
+                <p><strong>No Permanent Storage:</strong> We do not permanently store your original or processed videos unless you explicitly save them to your account.</p>
+                <p><strong>Secure Transfer:</strong> All video uploads and downloads use encrypted connections (HTTPS/TLS).</p>
+                
+                <h2>4. Data Sharing</h2>
+                <p>We do not sell, trade, or share your personal information or videos with third parties, except:</p>
+                <ul>
+                    <li>Cloud processing services (AWS, Google Cloud) for AI video processing</li>
+                    <li>Analytics services to improve app performance</li>
+                    <li>When required by law or to protect our rights</li>
+                </ul>
+                
+                <h2>5. Your Rights</h2>
+                <p>You have the right to:</p>
+                <ul>
+                    <li>Access your personal information</li>
+                    <li>Request deletion of your account and data</li>
+                    <li>Opt-out of non-essential communications</li>
+                    <li>Request data portability</li>
+                </ul>
+                
+                <h2>6. Security</h2>
+                <p>We implement industry-standard security measures to protect your data:</p>
+                <ul>
+                    <li>Encrypted data transmission and storage</li>
+                    <li>Regular security audits and updates</li>
+                    <li>Limited access to personal information</li>
+                    <li>Secure cloud infrastructure</li>
+                </ul>
+                
+                <h2>7. Children's Privacy</h2>
+                <p>Our service is not intended for children under 13. We do not knowingly collect personal information from children under 13. If you believe we have collected such information, please contact us immediately.</p>
+                
+                <h2>8. International Users</h2>
+                <p>If you are located outside the United States, your information may be transferred to and processed in the United States where our servers are located. By using our service, you consent to this transfer.</p>
+                
+                <h2>9. Changes to This Policy</h2>
+                <p>We may update this privacy policy from time to time. We will notify you of any changes by posting the new policy in the app and updating the "Last updated" date.</p>
+                
+                <h2>10. Contact Us</h2>
+                <p>If you have any questions about this Privacy Policy, please contact us at:</p>
+                <p><strong>Email:</strong> privacy@viralreel.ai<br>
+                <strong>Address:</strong> Bytelogic Ltd, London, United Kingdom</p>
             </div>
         </div>
-    </section>
+    </div>
 
     <!-- Footer -->
     <footer class="footer">
@@ -651,59 +831,33 @@
             <div class="footer-content">
                 <div class="footer-logo">Viral Reel</div>
                 <ul class="footer-links">
-                    <li><a href="#features">Features</a></li>
-                    <li><a href="#how-it-works">How It Works</a></li>
-                    <li><a href="#download">Download</a></li>
+                    <li><a href="#features" onclick="showHome()">Features</a></li>
+                    <li><a href="#how-it-works" onclick="showHome()">How It Works</a></li>
+                    <li><a href="#download" onclick="showHome()">Download</a></li>
+                    <li><a onclick="showPrivacy()">Privacy Policy</a></li>
+                    <li><a onclick="showTerms()">Terms of Service</a></li>
                 </ul>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Viral Reel. All rights reserved. | Privacy Policy | Terms of Service</p>
+                <p>&copy; 2025 Viral Reel by Bytelogic Ltd. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Add scroll effect to header
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('.header');
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(18, 18, 38, 0.98)';
-            } else {
-                header.style.background = 'rgba(18, 18, 38, 0.95)';
-            }
-        });
-
-        // Intersection Observer for animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animationPlayState = 'running';
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.fade-in, .feature-card, .process-step').forEach(el => {
-            observer.observe(el);
-        });
-    </script>
-</body>
-</html>
+        // Navigation functions
+        function showHome() {
+            document.getElementById('mainContent').classList.remove('hidden');
+            document.getElementById('mainContent').style.display = 'block';
+            document.getElementById('privacyContent').classList.remove('active');
+            window.scrollTo(0, 0);
+        }
+        
+        function showPrivacy() {
+            document.getElementById('mainContent').classList.add('hidden');
+            document.getElementById('mainContent').style.display = 'none';
+            document.getElementById('privacyContent').classList.add('active');
+            window.scrollTo(0, 0);
+        }
+        
+        function showTerms() {
