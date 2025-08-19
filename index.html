@@ -119,13 +119,10 @@
                 <p><strong>Reporting:</strong> Users can report inappropriate content through in-app reporting mechanisms.</p>
                 <p><strong>No Editorial Control:</strong> We do not exercise editorial control over user content and are not responsible for its accuracy or appropriateness.</p>
                 
-                <h2>21. Accessibility</h2>
-                <p>We strive to make our service accessible to users with disabilities and comply with applicable accessibility standards. If you encounter accessibility barriers, please contact us at accessibility@viralreel.ai.</p>
-                
-                <h2>22. International Users</h2>
+                <h2>21. International Users</h2>
                 <p>Our service is operated from the United Kingdom and United States. If you use our service from other jurisdictions, you are responsible for compliance with local laws. Some features may not be available in all regions.</p>
                 
-                <h2>23. Changes to Terms</h2>
+                <h2>22. Changes to Terms</h2>
                 <p>We may modify these Terms at any time. Material changes will be communicated through:</p>
                 <ul>
                     <li>In-app notifications</li>
@@ -135,12 +132,12 @@
                 </ul>
                 <p>Continued use after changes constitutes acceptance of the new Terms. If you disagree with changes, you must stop using the service.</p>
                 
-                <h2>24. Severability & Entire Agreement</h2>
+                <h2>23. Severability & Entire Agreement</h2>
                 <p><strong>Severability:</strong> If any provision of these Terms is found unenforceable, the remaining provisions remain in full effect.</p>
                 <p><strong>Entire Agreement:</strong> These Terms, together with our Privacy Policy, constitute the entire agreement between you and Bytelogic Ltd regarding use of the service.</p>
                 <p><strong>No Waiver:</strong> Our failure to enforce any provision does not constitute a waiver of that provision.</p>
                 
-                <h2>25. Contact Information & Legal Notices</h2>
+                <h2>24. Contact Information & Legal Notices</h2>
                 <p>For questions about these Terms of Service or legal notices:</p>
                 <p><strong>General Inquiries:</strong> edward@bytelogic.ltd<br>
                 <strong>DMCA Notices:</strong> dmca@viralreel.ai</p>
@@ -796,12 +793,12 @@
     <!-- Header -->
     <header class="header">
         <nav class="nav container">
-            <div class="logo" onclick="showHome()">Viral Reel</div>
+            <div class="logo" onclick="showHomeWithURL()">Viral Reel</div>
             <ul class="nav-links">
                 <li><a href="#features" onclick="showHome()">Features</a></li>
                 <li><a href="#how-it-works" onclick="showHome()">How It Works</a></li>
                 <li><a href="#download" onclick="showHome()">Download</a></li>
-                <li><a onclick="showPrivacy()">Privacy</a></li>
+                <li><a onclick="showPrivacyWithURL()">Privacy</a></li>
             </ul>
         </nav>
     </header>
@@ -911,7 +908,7 @@
     <!-- Privacy Policy Section -->
     <div class="privacy-content" id="privacyContent">
         <div class="container">
-            <a class="back-btn" onclick="showHome()">← Back to Home</a>
+            <a class="back-btn" onclick="showHomeWithURL()">← Back to Home</a>
             
             <div class="legal-header">
                 <h1>Privacy Policy</h1>
@@ -1070,7 +1067,7 @@
     <!-- Terms of Service Section -->
     <div class="terms-content" id="termsContent">
         <div class="container">
-            <a class="back-btn" onclick="showHome()">← Back to Home</a>
+            <a class="back-btn" onclick="showHomeWithURL()">← Back to Home</a>
             
             <div class="legal-header">
                 <h1>Terms of Service</h1>
@@ -1143,8 +1140,8 @@
                     <li><a href="#features" onclick="showHome()">Features</a></li>
                     <li><a href="#how-it-works" onclick="showHome()">How It Works</a></li>
                     <li><a href="#download" onclick="showHome()">Download</a></li>
-                    <li><a onclick="showPrivacy()">Privacy Policy</a></li>
-                    <li><a onclick="showTerms()">Terms of Service</a></li>
+                    <li><a onclick="showPrivacyWithURL()">Privacy Policy</a></li>
+                    <li><a onclick="showTermsWithURL()">Terms of Service</a></li>
                 </ul>
             </div>
             <div class="footer-bottom">
@@ -1156,27 +1153,60 @@
     <script>
         // Navigation functions
         function showHome() {
-            document.getElementById('mainContent').classList.remove('hidden');
             document.getElementById('mainContent').style.display = 'block';
-            document.getElementById('privacyContent').classList.remove('active');
-            document.getElementById('termsContent').classList.remove('active');
+            document.getElementById('privacyContent').style.display = 'none';
+            document.getElementById('termsContent').style.display = 'none';
             window.scrollTo(0, 0);
         }
         
         function showPrivacy() {
-            document.getElementById('mainContent').classList.add('hidden');
             document.getElementById('mainContent').style.display = 'none';
-            document.getElementById('privacyContent').classList.add('active');
-            document.getElementById('termsContent').classList.remove('active');
+            document.getElementById('privacyContent').style.display = 'block';
+            document.getElementById('termsContent').style.display = 'none';
             window.scrollTo(0, 0);
         }
         
         function showTerms() {
-            document.getElementById('mainContent').classList.add('hidden');
             document.getElementById('mainContent').style.display = 'none';
-            document.getElementById('privacyContent').classList.remove('active');
-            document.getElementById('termsContent').classList.add('active');
+            document.getElementById('privacyContent').style.display = 'none';
+            document.getElementById('termsContent').style.display = 'block';
             window.scrollTo(0, 0);
+        }
+
+        // URL-based navigation for direct links
+        function handleURLNavigation() {
+            const hash = window.location.hash;
+            if (hash === '#privacy') {
+                showPrivacy();
+            } else if (hash === '#terms') {
+                showTerms();
+            } else {
+                showHome();
+            }
+        }
+
+        // Handle browser back/forward buttons
+        window.addEventListener('popstate', handleURLNavigation);
+        
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            handleURLNavigation();
+        });
+
+        // Update navigation functions to change URL
+        function showHomeWithURL() {
+            history.pushState(null, '', '#home');
+            showHome();
+        }
+        
+        function showPrivacyWithURL() {
+            history.pushState(null, '', '#privacy');
+            showPrivacy();
+        }
+        
+        function showTermsWithURL() {
+            history.pushState(null, '', '#terms');
+            showTerms();
         }
 
         // Smooth scrolling for anchor links
