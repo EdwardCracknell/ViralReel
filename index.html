@@ -561,36 +561,162 @@
             color: #666;
         }
         
+        /* Mobile Burger Menu */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 5px;
+            z-index: 1001;
+        }
+        
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: #ff008c;
+            margin: 3px 0;
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+        
+        .mobile-menu-toggle.active span:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+        
+        .mobile-menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .mobile-menu-toggle.active span:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+        
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 80px;
+            left: 0;
+            right: 0;
+            background: rgba(18, 18, 38, 0.98);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 0, 140, 0.3);
+            z-index: 999;
+            padding: 20px;
+        }
+        
+        .mobile-menu.active {
+            display: block;
+        }
+        
+        .mobile-nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            list-style: none;
+        }
+        
+        .mobile-nav-links a {
+            color: #B0B0B0;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            text-align: center;
+            padding: 10px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .mobile-nav-links a:hover {
+            color: #00d0ff;
+            background: rgba(255, 0, 140, 0.1);
+        }
+        
         /* Responsive */
         @media (max-width: 768px) {
-            .hero h1, .legal-header h1 {
-                font-size: 2.5rem;
+            .container {
+                padding: 0 15px;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-toggle {
+                display: flex;
+            }
+            
+            .logo {
+                font-size: 22px;
                 letter-spacing: 1px;
+            }
+            
+            .hero {
+                padding: 140px 0 60px;
+            }
+            
+            .privacy-content, .terms-content {
+                padding: 140px 0 40px;
+            }
+            
+            .hero h1, .legal-header h1 {
+                font-size: 2.2rem;
+                letter-spacing: 1px;
+                line-height: 1.2;
             }
             
             .hero p {
                 font-size: 1.1rem;
+                margin-bottom: 30px;
             }
             
             .features h2, .process h2, .final-cta h2 {
                 font-size: 2rem;
                 letter-spacing: 1px;
+                margin-bottom: 40px;
             }
             
             .cta-buttons {
                 flex-direction: column;
                 align-items: center;
+                gap: 15px;
             }
             
             .download-btn {
                 width: 280px;
                 justify-content: center;
+                font-size: 16px;
+                padding: 16px 32px;
             }
             
             .hero-banner {
-                height: 300px;
+                height: 250px;
                 margin-bottom: 40px;
                 border-radius: 15px;
+                font-size: 1.5rem;
+            }
+            
+            .features, .process {
+                padding: 60px 0;
+            }
+            
+            .final-cta {
+                padding: 60px 0;
+            }
+            
+            .features-grid, .process-steps {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .feature-card {
+                padding: 30px 20px;
+            }
+            
+            .feature-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 24px;
             }
             
             .footer-content {
@@ -598,17 +724,87 @@
                 gap: 20px;
             }
             
-            .nav-links {
-                flex-direction: column;
-                gap: 15px;
+            .footer-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 20px;
             }
             
-            .nav-links a {
+            .footer-links a {
                 font-size: 14px;
             }
             
             .legal-content {
-                padding: 30px 20px;
+                padding: 25px 20px;
+                margin: 0 10px;
+                border-radius: 15px;
+            }
+            
+            .legal-header {
+                margin-bottom: 40px;
+                padding: 0 10px;
+            }
+            
+            .legal-header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .legal-content h2 {
+                font-size: 1.3rem;
+                margin-top: 25px;
+            }
+            
+            .legal-content p, .legal-content li {
+                font-size: 15px;
+                line-height: 1.5;
+            }
+            
+            .back-btn {
+                margin: 0 10px 30px;
+                font-size: 14px;
+                padding: 10px 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 10px;
+            }
+            
+            .hero h1, .legal-header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .features h2, .process h2, .final-cta h2 {
+                font-size: 1.6rem;
+            }
+            
+            .download-btn {
+                width: 250px;
+                font-size: 15px;
+                padding: 14px 28px;
+            }
+            
+            .hero-banner {
+                height: 200px;
+                font-size: 1.2rem;
+            }
+            
+            .legal-content {
+                padding: 20px 15px;
+                margin: 0 5px;
+            }
+            
+            .legal-content h2 {
+                font-size: 1.2rem;
+            }
+            
+            .legal-content p, .legal-content li {
+                font-size: 14px;
             }
         }
         
@@ -640,13 +836,32 @@
     <header class="header">
         <nav class="nav container">
             <div class="logo" onclick="showHomeWithURL()">Viral Reel</div>
+            
+            <!-- Desktop Navigation -->
             <ul class="nav-links">
                 <li><a href="#features" onclick="showHome()">Features</a></li>
                 <li><a href="#how-it-works" onclick="showHome()">How It Works</a></li>
                 <li><a href="#download" onclick="showHome()">Download</a></li>
                 <li><a onclick="showPrivacyWithURL()">Privacy</a></li>
             </ul>
+            
+            <!-- Mobile Menu Toggle -->
+            <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </nav>
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <ul class="mobile-nav-links">
+                <li><a href="#features" onclick="showHome(); closeMobileMenu();">Features</a></li>
+                <li><a href="#how-it-works" onclick="showHome(); closeMobileMenu();">How It Works</a></li>
+                <li><a href="#download" onclick="showHome(); closeMobileMenu();">Download</a></li>
+                <li><a onclick="showPrivacyWithURL(); closeMobileMenu();">Privacy</a></li>
+            </ul>
+        </div>
     </header>
 
     <!-- Main Content -->
@@ -871,7 +1086,7 @@
                 
                 <h2>14. Contact Us & Data Protection Officer</h2>
                 <p>For any questions about this Privacy Policy, data protection matters, or to exercise your privacy rights:</p>
-                <strong>General Inquiries:</strong> edward@bytelogic.ltd</p>
+                <p><strong>General Inquiries:</strong> edward@bytelogic.ltd</p>
                 
                 <p><strong>Response Time:</strong> We will respond to privacy requests within 30 days (or as required by local law).</p>
                 
@@ -925,115 +1140,7 @@
                 <p><strong>LUT-Enhanced Videos:</strong> You own all rights to the color-graded videos and AI-enhanced captions created through our service, subject to the original content ownership rights.</p>
                 <p><strong>User-Generated Content Rules:</strong> You represent and warrant that you have all necessary rights to upload and process any content through our service.</p>
                 
-                <h2>6. Intellectual Property Rights</h2>
-                <p>The Viral Reel application, including its design, code, LUT processing algorithms, AI caption enhancement technology, branding, and all proprietary technology, is owned by Bytelogic Ltd and protected by copyright, trademark, patent, and other intellectual property laws.</p>
-                <p><strong>License to Use App:</strong> We grant you a limited, non-exclusive, non-transferable, revocable license to use the App solely for personal, non-commercial purposes in accordance with these Terms.</p>
-                <p><strong>LUT Technology:</strong> Our proprietary LUT application methods and color grading technology are protected intellectual property and may not be reverse engineered or replicated.</p>
-                
-                <h2>7. DMCA Compliance & Copyright Protection</h2>
-                <p>We respect intellectual property rights and comply with the Digital Millennium Copyright Act (DMCA). If you believe content on our platform infringes your copyright:</p>
-                <p><strong>DMCA Takedown Process:</strong></p>
-                <ul>
-                    <li>Send written notice to our DMCA Agent: dmca@viralreel.ai</li>
-                    <li>Include identification of the copyrighted work and infringing material</li>
-                    <li>Provide your contact information and a good faith statement</li>
-                    <li>Include a statement of accuracy under penalty of perjury</li>
-                </ul>
-                <p><strong>Repeat Infringer Policy:</strong> We will terminate accounts of users who repeatedly infringe copyrights.</p>
-                <p><strong>Counter-Notice:</strong> Users may submit counter-notices for content removed due to mistake or misidentification.</p>
-                
-                <h2>8. AI Caption Enhancement & Liability</h2>
-                <p><strong>AI Text Processing:</strong> Our AI processes only your text descriptions to generate enhanced captions and hashtags. Video content is never analyzed by AI systems.</p>
-                <p><strong>Caption Accuracy:</strong> While we strive for relevant and engaging caption suggestions, AI-generated content may occasionally be unexpected or require editing.</p>
-                <p><strong>User Responsibility:</strong> You are responsible for reviewing all AI-enhanced captions before use and ensuring they comply with applicable laws and platform guidelines.</p>
-                <p><strong>LUT Processing:</strong> Color grading is achieved through mathematical LUT transformations, not AI analysis, ensuring consistent and predictable results.</p>
-                <p><strong>Training Data:</strong> Our AI caption models are trained on publicly available text data. We do not use your descriptions to train or improve our models.</p>
-                
-                <h2>9. Payment Terms & Subscriptions</h2>
-                <p><strong>Subscription Fees:</strong> Premium features require paid subscription. All fees are non-refundable except as required by law or our refund policy.</p>
-                <p><strong>Auto-Renewal:</strong> Subscriptions automatically renew unless canceled at least 24 hours before the renewal date.</p>
-                <p><strong>Price Changes:</strong> We may change subscription prices with 30 days' notice. Changes apply to subsequent billing periods.</p>
-                <p><strong>Third-Party Payment Processing:</strong> Payments are processed by Apple App Store, Google Play Store, or Stripe, subject to their terms.</p>
-                
-                <h2>10. Privacy & Data Protection</h2>
-                <p>Your privacy is important to us. Our collection, use, and protection of your personal information is governed by our Privacy Policy, which is incorporated into these Terms by reference. By using our service, you consent to the collection and use of information as described in our Privacy Policy.</p>
-                
-                <h2>11. Service Availability & Modifications</h2>
-                <p><strong>Service Availability:</strong> We strive to maintain high service availability but cannot guarantee uninterrupted access. We may suspend service for maintenance, updates, or technical issues.</p>
-                <p><strong>Service Modifications:</strong> We reserve the right to modify, suspend, or discontinue any aspect of our service at any time with reasonable notice.</p>
-                <p><strong>Force Majeure:</strong> We are not liable for service interruptions due to circumstances beyond our reasonable control.</p>
-                
-                <h2>12. Disclaimers & Warranties</h2>
-                <p><strong>AS-IS SERVICE:</strong> VIRAL REEL IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, NON-INFRINGEMENT, OR COURSE OF PERFORMANCE.</p>
-                <p><strong>AI PERFORMANCE:</strong> WE DO NOT GUARANTEE THAT OUR AI WILL PRODUCE SPECIFIC RESULTS, THAT YOUR CONTENT WILL BECOME VIRAL, OR THAT THE SERVICE WILL MEET YOUR EXPECTATIONS.</p>
-                <p><strong>NO WARRANTY ON CONTENT:</strong> WE DISCLAIM ALL WARRANTIES REGARDING USER-GENERATED CONTENT AND AI-GENERATED OUTPUT.</p>
-                
-                <h2>13. Limitation of Liability</h2>
-                <p><strong>EXCLUSION OF DAMAGES:</strong> TO THE MAXIMUM EXTENT PERMITTED BY LAW, BYTELOGIC LTD SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING BUT NOT LIMITED TO LOSS OF PROFITS, DATA, USE, GOODWILL, OR OTHER INTANGIBLE LOSSES, ARISING FROM YOUR USE OF VIRAL REEL.</p>
-                <p><strong>DAMAGE CAP:</strong> OUR TOTAL LIABILITY TO YOU FOR ALL CLAIMS ARISING FROM THESE TERMS OR YOUR USE OF THE SERVICE SHALL NOT EXCEED THE AMOUNT YOU PAID TO US IN THE 12 MONTHS PRECEDING THE CLAIM, OR $100, WHICHEVER IS GREATER.</p>
-                <p><strong>LUT-SPECIFIC LIMITATIONS:</strong> WE ARE NOT LIABLE FOR ANY CONSEQUENCES OF LUT-PROCESSED VIDEOS OR AI-ENHANCED CAPTIONS, INCLUDING COPYRIGHT INFRINGEMENT, DEFAMATION, OR OTHER LEGAL ISSUES ARISING FROM PROCESSED CONTENT.</p>
-                <p><strong>ESSENTIAL PURPOSE:</strong> THIS LIMITATION APPLIES EVEN IF OUR LIMITED REMEDY FAILS OF ITS ESSENTIAL PURPOSE.</p>
-                
-                <h2>14. Indemnification</h2>
-                <p>You agree to indemnify, defend, and hold harmless Bytelogic Ltd, its officers, directors, employees, agents, and affiliates from and against any claims, demands, losses, costs, damages, liabilities, judgments, awards, fines, and expenses (including reasonable attorneys' fees) arising from or relating to:</p>
-                <ul>
-                    <li>Your use of the App and services</li>
-                    <li>Your violation of these Terms or applicable laws</li>
-                    <li>Content you upload or process through our service</li>
-                    <li>Your infringement of any intellectual property or other rights of others</li>
-                    <li>Any LUT-processed videos or AI-enhanced captions created using our service</li>
-                    <li>Any claims by third parties regarding your use of our service</li>
-                </ul>
-                
-                <h2>15. Termination</h2>
-                <p><strong>Termination by You:</strong> You may terminate your account at any time through the app settings or by contacting us.</p>
-                <p><strong>Termination by Us:</strong> We may terminate or suspend your account immediately if you violate these Terms, engage in prohibited activities, or for any reason with 30 days' notice.</p>
-                <p><strong>Effect of Termination:</strong> Upon termination, your right to use the service ceases, and we will delete your account data within 30 days, except as required for legal compliance.</p>
-                <p><strong>Survival:</strong> Sections relating to intellectual property, liability limitations, indemnification, and dispute resolution survive termination.</p>
-                
-                <h2>16. Dispute Resolution & Arbitration</h2>
-                <p><strong>Governing Law:</strong> These Terms are governed by the laws of England and Wales, without regard to conflict of law principles.</p>
-                <p><strong>Jurisdiction:</strong> Any disputes will be resolved in the courts of London, United Kingdom, and you consent to personal jurisdiction there.</p>
-                <p><strong>Arbitration Agreement:</strong> For disputes involving claims under $10,000, you agree to resolve disputes through binding arbitration rather than in court, except where prohibited by law.</p>
-                <p><strong>Class Action Waiver:</strong> You agree to resolve disputes individually and waive any right to participate in class action lawsuits.</p>
-                
-                <h2>17. Export Control & Compliance</h2>
-                <p>You agree to comply with all applicable export control laws and regulations. You may not use our service if you are located in a country subject to U.S. embargo or if you are on any government restricted parties list.</p>
-                
-                <h2>18. Mobile App Specific Terms</h2>
-                <p><strong>App Store Terms:</strong> Additional terms may apply based on where you downloaded the app (Apple App Store, Google Play Store).</p>
-                <p><strong>Mobile Carrier:</strong> Your mobile carrier's standard charges apply to app download and usage.</p>
-                <p><strong>Updates:</strong> We may provide app updates, which may be required for continued use of the service.</p>
-                <p><strong>Device Requirements:</strong> The app requires compatible mobile devices and operating systems as specified in app store listings.</p>
-                
-                <h2>19. Third-Party Services & Integrations</h2>
-                <p>Our service may integrate with third-party services (social media platforms, cloud storage, etc.). Your use of such services is subject to their respective terms and privacy policies. We are not responsible for third-party services.</p>
-                
-                <h2>20. User-Generated Content & Community Guidelines</h2>
-                <p><strong>Content Standards:</strong> User content must comply with our community guidelines and applicable laws.</p>
-                <p><strong>Content Moderation:</strong> We reserve the right to review, monitor, and remove content that violates these Terms.</p>
-                <p><strong>Reporting:</strong> Users can report inappropriate content through in-app reporting mechanisms.</p>
-                <p><strong>No Editorial Control:</strong> We do not exercise editorial control over user content and are not responsible for its accuracy or appropriateness.</p>
-                
-                <h2>21. International Users</h2>
-                <p>Our service is operated from the United Kingdom and United States. If you use our service from other jurisdictions, you are responsible for compliance with local laws. Some features may not be available in all regions.</p>
-                
-                <h2>22. Changes to Terms</h2>
-                <p>We may modify these Terms at any time. Material changes will be communicated through:</p>
-                <ul>
-                    <li>In-app notifications</li>
-                    <li>Email notifications (for significant changes)</li>
-                    <li>Updated "Last modified" date</li>
-                    <li>30-day notice period for substantial changes</li>
-                </ul>
-                <p>Continued use after changes constitutes acceptance of the new Terms. If you disagree with changes, you must stop using the service.</p>
-                
-                <h2>23. Severability & Entire Agreement</h2>
-                <p><strong>Severability:</strong> If any provision of these Terms is found unenforceable, the remaining provisions remain in full effect.</p>
-                <p><strong>Entire Agreement:</strong> These Terms, together with our Privacy Policy, constitute the entire agreement between you and Bytelogic Ltd regarding use of the service.</p>
-                <p><strong>No Waiver:</strong> Our failure to enforce any provision does not constitute a waiver of that provision.</p>
-                
-                <h2>24. Contact Information & Legal Notices</h2>
+                <h2>6. Contact Information & Legal Notices</h2>
                 <p>For questions about these Terms of Service or legal notices:</p>
                 <p><strong>General Inquiries:</strong> edward@bytelogic.ltd<br>
                 <strong>DMCA Notices:</strong> dmca@viralreel.ai</p>
@@ -1064,6 +1171,23 @@
     </footer>
 
     <script>
+        // Mobile menu functionality
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const toggle = document.querySelector('.mobile-menu-toggle');
+            
+            mobileMenu.classList.toggle('active');
+            toggle.classList.toggle('active');
+        }
+        
+        function closeMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const toggle = document.querySelector('.mobile-menu-toggle');
+            
+            mobileMenu.classList.remove('active');
+            toggle.classList.remove('active');
+        }
+        
         // Navigation functions
         function showHome() {
             console.log('Showing home page');
@@ -1125,16 +1249,19 @@
             // Don't add hash for home page, keep URL clean
             history.pushState(null, '', window.location.pathname);
             showHome();
+            closeMobileMenu();
         }
         
         function showPrivacyWithURL() {
             history.pushState(null, '', '#privacy');
             showPrivacy();
+            closeMobileMenu();
         }
         
         function showTermsWithURL() {
             history.pushState(null, '', '#terms');
             showTerms();
+            closeMobileMenu();
         }
 
         // Smooth scrolling for anchor links
@@ -1176,6 +1303,23 @@
         document.addEventListener('DOMContentLoaded', function() {
             const animatedElements = document.querySelectorAll('.feature-card, .process-step');
             animatedElements.forEach(el => observer.observe(el));
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(e) {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const toggle = document.querySelector('.mobile-menu-toggle');
+            
+            if (!toggle.contains(e.target) && !mobileMenu.contains(e.target)) {
+                closeMobileMenu();
+            }
+        });
+
+        // Handle window resize
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                closeMobileMenu();
+            }
         });
     </script>
 </body>
