@@ -86,6 +86,7 @@
             font-weight: 600;
             transition: all 0.3s ease;
             position: relative;
+            cursor: pointer;
         }
         
         .nav-links a::after {
@@ -112,12 +113,12 @@
             display: block;
         }
         
-        .privacy-content {
+        .privacy-content, .terms-content {
             display: none;
             padding: 120px 0 40px;
         }
         
-        .privacy-content.active {
+        .privacy-content.active, .terms-content.active {
             display: block;
         }
         
@@ -225,6 +226,11 @@
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
             animation: float 6s ease-in-out infinite;
             border: 2px solid rgba(255, 0, 140, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: #B0B0B0;
         }
         
         .hero-banner img {
@@ -434,13 +440,13 @@
             margin-bottom: 40px;
         }
         
-        /* Privacy Policy Styles */
-        .privacy-header {
+        /* Privacy Policy & Terms Styles */
+        .legal-header {
             text-align: center;
             margin-bottom: 60px;
         }
         
-        .privacy-header h1 {
+        .legal-header h1 {
             font-size: 3rem;
             font-weight: 800;
             margin-bottom: 20px;
@@ -452,12 +458,12 @@
             letter-spacing: 2px;
         }
         
-        .privacy-header p {
+        .legal-header p {
             color: #B0B0B0;
             font-size: 1.1rem;
         }
         
-        .privacy-policy {
+        .legal-content {
             max-width: 800px;
             margin: 0 auto;
             background: rgba(42, 42, 64, 0.3);
@@ -467,29 +473,29 @@
             border: 1px solid rgba(255, 0, 140, 0.2);
         }
         
-        .privacy-policy h2 {
+        .legal-content h2 {
             color: #ff008c;
             font-size: 1.5rem;
             margin-bottom: 15px;
             margin-top: 30px;
         }
         
-        .privacy-policy h2:first-child {
+        .legal-content h2:first-child {
             margin-top: 0;
         }
         
-        .privacy-policy p, .privacy-policy li {
+        .legal-content p, .legal-content li {
             color: #B0B0B0;
             line-height: 1.6;
             margin-bottom: 15px;
         }
         
-        .privacy-policy ul {
+        .legal-content ul {
             margin-left: 20px;
             margin-bottom: 20px;
         }
         
-        .privacy-policy strong {
+        .legal-content strong {
             color: white;
         }
         
@@ -506,6 +512,7 @@
             margin-bottom: 40px;
             transition: all 0.3s ease;
             box-shadow: 0 5px 15px rgba(102, 70, 255, 0.3);
+            cursor: pointer;
         }
         
         .back-btn:hover {
@@ -564,7 +571,7 @@
         
         /* Responsive */
         @media (max-width: 768px) {
-            .hero h1, .privacy-header h1 {
+            .hero h1, .legal-header h1 {
                 font-size: 2.5rem;
                 letter-spacing: 1px;
             }
@@ -608,7 +615,7 @@
                 font-size: 14px;
             }
             
-            .privacy-policy {
+            .legal-content {
                 padding: 30px 20px;
             }
         }
@@ -657,7 +664,7 @@
             <div class="container">
                 <!-- Hero Banner -->
                 <div class="hero-banner fade-in">
-                    <img src="ViralReelBanner.webp" alt="Viral Reel - AI-Powered Video Editing Banner">
+                    📱 Viral Video Editor
                 </div>
                 
                 <div class="hero-content fade-in">
@@ -755,14 +762,14 @@
     <!-- Privacy Policy Section -->
     <div class="privacy-content" id="privacyContent">
         <div class="container">
-            <a href="#" class="back-btn" onclick="showHome()">← Back to Home</a>
+            <a class="back-btn" onclick="showHome()">← Back to Home</a>
             
-            <div class="privacy-header">
+            <div class="legal-header">
                 <h1>Privacy Policy</h1>
-                <p>Last updated: August 16, 2025</p>
+                <p>Last updated: August 19, 2025</p>
             </div>
             
-            <div class="privacy-policy">
+            <div class="legal-content">
                 <h2>1. Information We Collect</h2>
                 <p><strong>Personal Information:</strong> When you create an account, we collect your name, email address, and profile information.</p>
                 <p><strong>Video Content:</strong> We process videos you upload to provide our AI-powered editing services. Videos are temporarily stored for processing and deleted after completion.</p>
@@ -825,6 +832,73 @@
         </div>
     </div>
 
+    <!-- Terms of Service Section -->
+    <div class="terms-content" id="termsContent">
+        <div class="container">
+            <a class="back-btn" onclick="showHome()">← Back to Home</a>
+            
+            <div class="legal-header">
+                <h1>Terms of Service</h1>
+                <p>Last updated: August 19, 2025</p>
+            </div>
+            
+            <div class="legal-content">
+                <h2>1. Acceptance of Terms</h2>
+                <p>By downloading, installing, or using the Viral Reel application, you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our service.</p>
+                
+                <h2>2. Description of Service</h2>
+                <p>Viral Reel is an AI-powered video editing application that provides automated color grading, effects, and caption generation to help users create engaging video content.</p>
+                
+                <h2>3. User Accounts</h2>
+                <p>You are responsible for maintaining the confidentiality of your account credentials and for all activities that occur under your account. You must notify us immediately of any unauthorized use of your account.</p>
+                
+                <h2>4. Acceptable Use</h2>
+                <p>You agree to use Viral Reel only for lawful purposes and in accordance with these Terms. You may not:</p>
+                <ul>
+                    <li>Upload content that is illegal, harmful, threatening, abusive, or violates any laws</li>
+                    <li>Infringe on intellectual property rights of others</li>
+                    <li>Upload content containing malware or viruses</li>
+                    <li>Attempt to reverse engineer or hack our services</li>
+                    <li>Use our service to create spam or misleading content</li>
+                </ul>
+                
+                <h2>5. Content Ownership and License</h2>
+                <p><strong>Your Content:</strong> You retain ownership of all videos and content you upload to Viral Reel.</p>
+                <p><strong>License to Us:</strong> By uploading content, you grant us a temporary license to process, edit, and enhance your videos solely for the purpose of providing our service.</p>
+                <p><strong>Generated Content:</strong> You own the edited videos and AI-generated captions created through our service.</p>
+                
+                <h2>6. Intellectual Property</h2>
+                <p>The Viral Reel application, including its design, code, AI algorithms, and branding, is owned by Bytelogic Ltd and is protected by copyright, trademark, and other intellectual property laws.</p>
+                
+                <h2>7. Service Availability</h2>
+                <p>We strive to maintain high service availability but cannot guarantee uninterrupted access. We may temporarily suspend service for maintenance, updates, or technical issues.</p>
+                
+                <h2>8. Payment and Subscriptions</h2>
+                <p>Some features may require payment or subscription. All fees are non-refundable unless required by law. Subscription fees are billed in advance and will automatically renew unless canceled.</p>
+                
+                <h2>9. Termination</h2>
+                <p>We may terminate or suspend your account immediately if you violate these Terms. You may cancel your account at any time through the app settings.</p>
+                
+                <h2>10. Disclaimers</h2>
+                <p>Viral Reel is provided "as is" without warranties of any kind. We do not guarantee that our AI will produce specific results or that your content will become viral.</p>
+                
+                <h2>11. Limitation of Liability</h2>
+                <p>To the maximum extent permitted by law, Bytelogic Ltd shall not be liable for any indirect, incidental, special, or consequential damages arising from your use of Viral Reel.</p>
+                
+                <h2>12. Changes to Terms</h2>
+                <p>We may modify these Terms at any time. We will notify users of significant changes through the app or email. Continued use after changes constitutes acceptance of the new Terms.</p>
+                
+                <h2>13. Governing Law</h2>
+                <p>These Terms are governed by the laws of England and Wales. Any disputes will be resolved in the courts of London, United Kingdom.</p>
+                
+                <h2>14. Contact Information</h2>
+                <p>For questions about these Terms of Service, contact us at:</p>
+                <p><strong>Email:</strong> legal@viralreel.ai<br>
+                <strong>Address:</strong> Bytelogic Ltd, London, United Kingdom</p>
+            </div>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
@@ -847,17 +921,69 @@
     <script>
         // Navigation functions
         function showHome() {
-            document.getElementById('mainContent').classList.remove('hidden');
+            console.log('Home clicked'); // Debug line
             document.getElementById('mainContent').style.display = 'block';
-            document.getElementById('privacyContent').classList.remove('active');
+            document.getElementById('privacyContent').style.display = 'none';
+            document.getElementById('termsContent').style.display = 'none';
             window.scrollTo(0, 0);
         }
         
         function showPrivacy() {
-            document.getElementById('mainContent').classList.add('hidden');
+            console.log('Privacy clicked'); // Debug line
             document.getElementById('mainContent').style.display = 'none';
-            document.getElementById('privacyContent').classList.add('active');
+            document.getElementById('privacyContent').style.display = 'block';
+            document.getElementById('termsContent').style.display = 'none';
             window.scrollTo(0, 0);
         }
         
         function showTerms() {
+            console.log('Terms clicked'); // Debug line
+            document.getElementById('mainContent').style.display = 'none';
+            document.getElementById('privacyContent').style.display = 'none';
+            document.getElementById('termsContent').style.display = 'block';
+            window.scrollTo(0, 0);
+        }
+
+        // Smooth scrolling for anchor links
+        document.addEventListener('DOMContentLoaded', function() {
+            const links = document.querySelectorAll('a[href^="#"]');
+            
+            for (const link of links) {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            }
+        });
+
+        // Add fade-in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all feature cards and process steps
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedElements = document.querySelectorAll('.feature-card, .process-step');
+            animatedElements.forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+</html>
