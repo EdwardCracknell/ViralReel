@@ -264,14 +264,6 @@
             padding: 120px 0 40px;
         }
         
-        .privacy-content.active, .terms-content.active {
-            display: block;
-        }
-        
-        .main-content.hidden {
-            display: none;
-        }
-        
         /* Hero Section */
         .hero {
             padding: 120px 0 80px;
@@ -1153,6 +1145,7 @@
     <script>
         // Navigation functions
         function showHome() {
+            console.log('Showing home page');
             document.getElementById('mainContent').style.display = 'block';
             document.getElementById('privacyContent').style.display = 'none';
             document.getElementById('termsContent').style.display = 'none';
@@ -1160,6 +1153,7 @@
         }
         
         function showPrivacy() {
+            console.log('Showing privacy page');
             document.getElementById('mainContent').style.display = 'none';
             document.getElementById('privacyContent').style.display = 'block';
             document.getElementById('termsContent').style.display = 'none';
@@ -1167,20 +1161,26 @@
         }
         
         function showTerms() {
+            console.log('Showing terms page');
             document.getElementById('mainContent').style.display = 'none';
             document.getElementById('privacyContent').style.display = 'none';
             document.getElementById('termsContent').style.display = 'block';
             window.scrollTo(0, 0);
         }
 
+        // Initialize immediately when script loads
+        showHome();
+        
         // URL-based navigation for direct links
         function handleURLNavigation() {
             const hash = window.location.hash;
+            console.log('Current hash:', hash);
             if (hash === '#privacy') {
                 showPrivacy();
             } else if (hash === '#terms') {
                 showTerms();
             } else {
+                // Default to home for any other case
                 showHome();
             }
         }
@@ -1188,14 +1188,21 @@
         // Handle browser back/forward buttons
         window.addEventListener('popstate', handleURLNavigation);
         
-        // Initialize on page load
+        // Initialize on page load - ensure home shows by default
         document.addEventListener('DOMContentLoaded', function() {
-            handleURLNavigation();
+            // If no hash or unknown hash, show home
+            const hash = window.location.hash;
+            if (!hash || (hash !== '#privacy' && hash !== '#terms')) {
+                showHome();
+            } else {
+                handleURLNavigation();
+            }
         });
 
         // Update navigation functions to change URL
         function showHomeWithURL() {
-            history.pushState(null, '', '#home');
+            // Don't add hash for home page, keep URL clean
+            history.pushState(null, '', window.location.pathname);
             showHome();
         }
         
